@@ -9,11 +9,11 @@
 ## Instalación de Odoo con docker
 1. Descargar el repositorio
 ~~~
-git clone https://github.com/escuelafullstack/template_odoo_docker_compose.git
+git clone https://github.com/kitsotik/odoo14.git
 ~~~
 2. Ingresar a la carpeta 
 ~~~
-cd template_odoo_docker_compose
+cd odoo14
 ~~~
 3. Crear archivo .env y docker-compose.yaml
 ~~~
@@ -36,7 +36,7 @@ docker-compose up --build
 sudo docker-compose up --build -V --force-rm --no-cache 
 
 
-#docker-compose -f dc-odoo13-gimaq.yml up -d
+#docker-compose -f dc-odoo14-gimaq.yml up -d
 #sudo docker exec -t -u root odoo-rproxy mkdir /etc/nginx/sites-enabled
 #sudo docker exec -t -u root odoo-rproxy ln -s /etc/nginx/sites-available/odoo /etc/nginx/sites-enabled/odoo 
 #exit

@@ -19,7 +19,7 @@ services:
     
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
     networks:
-      - odoo13-network
+      - odoo14-network
   odoo-db:
     container_name: ${DB_HOST}
     image: ${DB_IMAGE}:${DB_TAG}
@@ -34,7 +34,7 @@ services:
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
     networks:
-      - odoo13-network
+      - odoo14-network
   odoo-rproxy:
     container_name: odoo-rproxy
     image: nginx
@@ -45,7 +45,7 @@ services:
     volumes:
         - ./nginx:/etc/nginx/conf.d
     networks:
-      - odoo13-network
+      - odoo14-network
     links:
       - odoo-app
 
@@ -54,5 +54,5 @@ volumes:
   odoo-app-data:
 
 networks:
-  odoo13-network:
+  odoo14-network:
     driver: bridge
