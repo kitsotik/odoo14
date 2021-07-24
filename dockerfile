@@ -3,28 +3,22 @@ FROM odoo:latest
 LABEL MAINTAINER kitsotik <kitsotik@gimaq.com.ar>
 USER root
 
-RUN pip3 install wheel
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y apt-utils
-RUN apt-get install -y git python-m2crypto gcc libssl-dev swig python3-dev 
+RUN apt-get install -y apt-utils git python-m2crypto gcc libssl-dev swig python3-dev python-setuptools
+RUN pip3 install --upgrade pip
+RUN pip3 install wheel \
+		pyOpenSSL \
+		httplib2>=0.7 \
+		git+https://github.com/pysimplesoap/pysimplesoap@stable_py3k \
+		git+https://github.com/reingart/pyafipws@py3k \
+		httplib2>=0.12.0 \
+		m2crypto>=0.18 \
+		fpdf>=1.7.2 \
+		dbf>=0.88.019 \
+		Pillow>=2.0.0 \
+		certifi>=2020.4.5.1
 
 
-#RUN git clone https://github.com/ctmil/odoo-argentina/ -b 14.0 /mnt/addons-custom
-#RUN cd /mnt/addons-custom
-#RUN pip3 install --upgrade pip
-#RUN pip3 install -r /mnt/addons-custom/moldeo/requirements.txt
-#RUN apt-get install python-
-
-#COPY /scripts/localizacion-moldeo.sh /usr/local/bin/
-#ENTRYPOINT []
 
 
-
-
-# Choose and name our temporary image.
-#FROM alpine as intermediate
-#LABEL stage=intermediate
-#RUN apk update && apk upgrade && apk add --no-cache bash git
-#WORKDIR /app
-#RUN git clone https://github.com/ctmil/odoo-argentina/ -b 14.0 /app
 
